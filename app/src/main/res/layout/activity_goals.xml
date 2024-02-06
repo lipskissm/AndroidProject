@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFEFEF"
+    tools:context=".Goals">
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="26dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/loseWeight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/musclesText2" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="12dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/sustainHealth"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/musclesText" />
+
+    <TextView
+        android:id="@+id/musclesText2"
+        android:layout_width="406dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/alata"
+        android:text="(*) Establish your diet by also training your body"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#333333"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/view4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gainMuscles" />
+
+    <TextView
+        android:id="@+id/musclesText"
+        android:layout_width="wrap_content"
+        android:layout_height="62dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/alata"
+        android:text="(*) Start your weight loss journey with exercise, diet, and cardio programs"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#333333"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loseWeight" />
+
+    <Button
+        android:id="@+id/sustainHealth"
+        android:layout_width="295dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="44dp"
+        android:backgroundTint="#FFC300"
+        android:fontFamily="@font/alata"
+        android:text="Sustain Health"
+        android:textColor="#333333"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+    <Button
+        android:id="@+id/loseWeight"
+        android:layout_width="295dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#FFC300"
+        android:fontFamily="@font/alata"
+        android:text="Lose Weight"
+        android:textColor="#333333"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+    <Button
+        android:id="@+id/gainMuscles"
+        android:layout_width="295dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#FFC300"
+        android:fontFamily="@font/alata"
+        android:text="Gain Muscles"
+        android:textColor="#333333"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goals" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginBottom="25dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/gainMuscles"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goals" />
+
+    <TextView
+        android:id="@+id/goals"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFC300"
+        android:fontFamily="@font/alata"
+        android:text="What do you want to achieve?"
+        android:textAlignment="center"
+        android:textColor="#333333"
+        android:textSize="27sp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/MusclesText"
+        android:layout_width="wrap_content"
+        android:layout_height="62dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/alata"
+        android:text="(*) Begin living a healthy life by monitoring your calorie intake"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#333333"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sustainHealth"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
