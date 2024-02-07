@@ -30,7 +30,8 @@ public class MealPlan extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal_plan);
-
+        MyDatabaseHelper mydb = new MyDatabaseHelper(MealPlan.this);
+        mydb.insertMeals("Steak and Potatoes", "Lunch", 980, "Grilled Steak (300g), Roasted Potatoes (300g), Sautéed Asparagus (100g), Garlic Butter (50g)");
         mealsList = new ArrayList<>();
 
         // Adding Meal objects to the ArrayList
