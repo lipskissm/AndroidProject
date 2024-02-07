@@ -5,18 +5,22 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     private Context context;
-    private static final String DATABASE_NAME = "Login.db";
+    private static final String DATABASE_NAME = "Meal.db";
     private static final int DATABASE_VERSION = 1;
-    private static final String TABLE_NAME = "Loginai";
+    private static final String TABLE_NAME = "Meals";
     private static final String COLUMN_ID = "_id";
-    private static final String COLUMN_USER = "Username";
-    private static final String COLUMN_PASSWD = "Password";
+    private static final String COLUMN_Meal = "Meal";
+    private static final String COLUMN_Time = "Time";
+    private static final String COLUMN_Calories = "Calories";
+    private static final String COLUMN_ingredients = "Ingredients";
+
 
 
     public MyDatabaseHelper(@Nullable Context context) {
@@ -29,8 +33,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_NAME +
                 " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_USER + " TEXT, " +
-                COLUMN_PASSWD + " TEXT);";
+                COLUMN_Meal + " TEXT, " +
+                COLUMN_Time + " TEXT, " +
+                COLUMN_Calories + " INTEGER, " +
+                COLUMN_ingredients + " TEXT);";
         db.execSQL(query);
     }
 
@@ -41,19 +47,34 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void login(String username, String password){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
+    void insertMeals (String Meal, String Time, int Calories, String ingredients ){
+        SQLiteDatabase database = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
 
-        cv.put(COLUMN_USER, username);
-        cv.put(COLUMN_PASSWD, password);
-        long result = db.insert(TABLE_NAME, null, cv);
+        contentValues.put(COLUMN_Meal, Meal);
+        contentValues.put(COLUMN_Time, Time);
+        contentValues.put(COLUMN_Calories, Calories);
+        contentValues.put(COLUMN_ingredients, Calories);
+
+        long result = database.insert(TABLE_NAME, null, contentValues);
         if(result == -1){
-            Toast.makeText(context, "Fail", Toast.LENGTH_SHORT).show();
-
-        } else {
-            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+            Log.e("error", "failed insert");
         }
+
     }
+//    void login(String username, String password){
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues cv = new ContentValues();
+//
+//        cv.put(COLUMN_USER, username);
+//        cv.put(COLUMN_PASSWD, password);
+//        long result = db.insert(TABLE_NAME, null, cv);
+//        if(result == -1){
+//            Toast.makeText(context, "Fail", Toast.LENGTH_SHORT).show();
+//
+//        } else {
+//            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
 }
