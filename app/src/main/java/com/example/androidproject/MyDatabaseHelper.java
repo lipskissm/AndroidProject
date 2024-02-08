@@ -2,6 +2,7 @@ package com.example.androidproject;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
@@ -63,4 +64,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+
+    public boolean mealsExist() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM meals", null);
+        boolean mealsExist = cursor.getCount() > 0;
+        cursor.close();
+        return mealsExist;
+    }
 }
