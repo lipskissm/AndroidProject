@@ -32,6 +32,52 @@ public class MealPlan extends AppCompatActivity {
         setContentView(R.layout.activity_meal_plan);
         MyDatabaseHelper mydb = new MyDatabaseHelper(MealPlan.this);
         mydb.insertMeals("Steak and Potatoes", "Lunch", 980, "Grilled Steak (300g), Roasted Potatoes (300g), Sautéed Asparagus (100g), Garlic Butter (50g)");
+        mydb.insertMeals("Pasta Alfredo with Chicken", "Dinner", 920, "Fettuccine Pasta (300g), Grilled Chicken Breast (200g), Alfredo Sauce (200g), Parmesan Cheese (50g), Broccoli (100g)");
+        mydb.insertMeals("High-Protein Power Bowl", "Lunch", 950, "Quinoa (250g), Grilled Salmon Fillet (300g), Steamed Kale (150g), Chickpeas (150g), Lemon Tahini Dressing (100g)");
+        mydb.insertMeals("Triple Decker Club Sandwich", "Lunch", 980, "Turkey Breast (200g), Ham (150g), Bacon (150g), Swiss Cheese (100g), Lettuce (50g), Tomato (50g), Mayonnaise (50g), Whole Wheat Bread (230g)");
+        mydb.insertMeals("Sushi Platter", "Dinner", 990, "Assorted Sushi Rolls (400g), Edamame (200g), Soy Sauce (50g), Pickled Ginger (30g), Wasabi (10g)");
+        mydb.insertMeals("Avocado Toast", "Breakfast", 500, "Whole Grain Bread (120g), Avocado (150g), Cherry Tomatoes (60g), Feta Cheese (50g)");
+        mydb.insertMeals("Grilled Salmon Salad", "Lunch", 600, "Grilled Salmon Fillet (200g), Mixed Greens (150g), Cucumber (80g), Red Onion (50g), Balsamic Vinaigrette (30g)");
+        mydb.insertMeals("Vegetable Stir-Fry", "Dinner", 550, "Broccoli (150g), Carrots (120g), Bell Peppers (100g), Tofu (150g), Soy Sauce (30g)");
+        mydb.insertMeals("Peanut Butter Banana Smoothie", "Breakfast", 400, "Banana (200g), Peanut Butter (50g), Greek Yogurt (150g), Almond Milk (200g)");
+        mydb.insertMeals("Caprese Salad", "Lunch", 450, "Tomatoes (150g), Fresh Mozzarella (80g), Basil Leaves (15g), Balsamic Glaze (30g)");
+        mydb.insertMeals("Chicken Quinoa Bowl", "Dinner", 580, "Grilled Chicken Breast (180g), Quinoa (150g), Steamed Broccoli (120g), Avocado (80g), Sriracha Sauce (15g)");
+        mydb.insertMeals("Egg White Omelette", "Breakfast", 350, "Egg Whites (250g), Spinach (80g), Mushrooms (60g), Feta Cheese (50g)");
+        mydb.insertMeals("Tuna Salad Sandwich", "Lunch", 500, "Canned Tuna (120g), Whole Wheat Bread (100g), Lettuce (60g), Tomato (50g), Mayonnaise (30g)");
+        mydb.insertMeals("Vegetarian Chili", "Dinner", 450, "Kidney Beans (150g), Black Beans (120g), Diced Tomatoes (150g), Bell Peppers (90g), Onion (60g), Chili Powder (15g)");
+        mydb.insertMeals("Blueberry Pancakes", "Breakfast", 600, "Pancake Mix (200g), Blueberries (150g), Maple Syrup (50g), Butter (30g)");
+        mydb.insertMeals("Turkey and Veggie Wrap", "Lunch", 500, "Sliced Turkey Breast (150g), Hummus (60g), Red Bell Pepper (60g), Spinach Leaves (50g), Whole Wheat Wrap (100g)");
+        mydb.insertMeals("Mushroom Risotto", "Dinner", 650, "Rice (150g), Mushrooms (120g), Vegetable Broth (250g), Parmesan Cheese (40g), White Wine (30g)");
+        mydb.insertMeals("Fruit Salad", "Breakfast", 350, "Strawberries (100g), Pineapple (90g), Kiwi (70g), Grapes (70g), Honey (30g)");
+        mydb.insertMeals("Shrimp Tacos", "Lunch", 500, "Shrimp (150g), Corn Tortillas (120g), Cabbage Slaw (100g), Avocado (80g), Lime (30g)");
+        mydb.insertMeals("Eggplant Parmesan", "Dinner", 600, "Eggplant (200g), Marinara Sauce (120g), Mozzarella Cheese (60g), Bread Crumbs (40g), Olive Oil (30g)");
+        mydb.insertMeals("Breakfast Burrito", "Breakfast", 550, "Scrambled Eggs (200g), Black Beans (120g), Salsa (70g), Cheddar Cheese (60g), Whole Wheat Tortilla (120g)");
+        mydb.insertMeals("Asian Noodle Salad", "Lunch", 480, "Rice Noodles (150g), Shredded Carrots (80g), Cucumber (70g), Edamame (60g), Soy Ginger Dressing (30g)");
+        mydb.insertMeals("Beef and Broccoli Stir-Fry", "Dinner", 700, "Beef Sirloin (200g), Broccoli Florets (150g), Soy Sauce (40g), Garlic (30g), Brown Rice (200g)");
+        mydb.insertMeals("Cottage Cheese and Fruit Bowl", "Breakfast", 450, "Cottage Cheese (200g), Sliced Peaches (150g), Almonds (50g), Honey (30g)");
+        mydb.insertMeals("Mediterranean Wrap", "Lunch", 550, "Grilled Chicken (180g), Tzatziki Sauce (60g), Kalamata Olives (45g), Red Onion (45g), Whole Wheat Wrap (120g)");
+        mydb.insertMeals("Nutty Energy Bars", "Snack", 400, "Rolled Oats (100g), Almonds (100g), Peanut Butter (80g), Honey (50g), Dark Chocolate Chips (50g)");
+        mydb.insertMeals("Greek Yogurt Bowl", "Snack", 350, "Greek Yogurt (250g), Mixed Berries (100g), Granola (50g), Chia Seeds (20g), Honey (30g)");
+        mydb.insertMeals("Trail Mix Deluxe", "Snack", 450, "Almonds (150g), Cashews (150g), Dried Cranberries (100g), Dark Chocolate (50g), Pumpkin Seeds (50g)");
+        mydb.insertMeals("Cheese and Crackers Platter", "Snack", 500, "Assorted Cheeses (200g), Multigrain Crackers (150g), Grapes (100g), Apple Slices (50g), Honey (30g)");
+        mydb.insertMeals("Hummus and Veggie Sticks", "Snack", 380, "Hummus (150g), Carrot Sticks (100g), Cucumber Slices (100g), Bell Pepper Strips (50g)");
+        mydb.insertMeals("Protein-Packed Smoothie Bowl", "Snack", 420, "Protein Powder (40g), Frozen Mixed Berries (150g), Banana (100g), Almond Milk (200g), Granola (50g)");
+        mydb.insertMeals("Avocado and Whole Grain Toast", "Snack", 370, "Avocado (150g), Whole Grain Toast (100g), Cherry Tomatoes (50g), Feta Cheese (30g)");
+        mydb.insertMeals("Cottage Cheese and Fruit Plate", "Snack", 420, "Cottage Cheese (200g), Sliced Peaches (100g), Almonds (50g), Honey (20g), Kiwi Slices (50g)");
+        mydb.insertMeals("Nut Butter and Banana Rice Cakes", "Snack", 380, "Rice Cakes (100g), Almond Butter (50g), Peanut Butter (50g), Sliced Banana (80g), Honey (20g)");
+        mydb.insertMeals("Tuna Salad with Crackers", "Snack", 450, "Canned Tuna (100g), Mayonnaise (30g), Diced Celery (50g), Whole Grain Crackers (150g), Lettuce Leaves (50g)");
+
+
+
+
+
+
+
+
+
+
+
+
         mealsList = new ArrayList<>();
 
         // Adding Meal objects to the ArrayList
