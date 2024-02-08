@@ -2,6 +2,7 @@ package com.example.androidproject;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
@@ -62,19 +63,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
 
     }
-//    void login(String username, String password){
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues cv = new ContentValues();
-//
-//        cv.put(COLUMN_USER, username);
-//        cv.put(COLUMN_PASSWD, password);
-//        long result = db.insert(TABLE_NAME, null, cv);
-//        if(result == -1){
-//            Toast.makeText(context, "Fail", Toast.LENGTH_SHORT).show();
-//
-//        } else {
-//            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
-//        }
-//    }
 
+
+    public boolean mealsExist() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM meals", null);
+        boolean mealsExist = cursor.getCount() > 0;
+        cursor.close();
+        return mealsExist;
+    }
 }
