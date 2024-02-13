@@ -1,5 +1,6 @@
 package com.example.androidproject;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import com.example.androidproject.MyDatabaseHelper;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,7 +25,10 @@ public class MealPlan extends AppCompatActivity {
     TextView showMealName, showMealIngredients, showMealCalories;
     CheckBox checkBox1, checkBox2, checkBox3, checkBox4;
     private static final String CHECKBOX_STATE = "checkbox_state";
-
+    TextView[] mealNameTextViews;
+    TextView[] mealCaloriesTextViews;
+    TextView[] mealIngredientsTextViews;
+    CheckBox[] checkBoxes;
     ArrayList<Meal> mealsList, breakfastList, lunchList, dinnerList, snackList;
 
     int breakfastId, lunchId, dinnerId, snackId;
@@ -31,14 +36,18 @@ public class MealPlan extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_meal_plan);
+
         MyDatabaseHelper mydb = new MyDatabaseHelper(MealPlan.this);
         if (!mydb.mealsExist()) {
             // Insert meals only if the database is empty
             insertMeals();
         }
-
+        mealNameTextViews = new TextView[] { findViewById(R.id.textView2), findViewById(R.id.textView7), findViewById(R.id.textView12), findViewById(R.id.textView17) };
+        mealCaloriesTextViews = new TextView[] { findViewById(R.id.textView4), findViewById(R.id.textView9), findViewById(R.id.textView14), findViewById(R.id.textView18) };
+        mealIngredientsTextViews = new TextView[] { findViewById(R.id.textView5), findViewById(R.id.textView10), findViewById(R.id.textView15), findViewById(R.id.textView30) };
+        checkBoxes = new CheckBox[] { findViewById(R.id.checkBox), findViewById(R.id.checkBox2), findViewById(R.id.checkBox3), findViewById(R.id.checkBox4) };
+        displayMeals();
         imageView = findViewById(R.id.closeIcon);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +62,37 @@ public class MealPlan extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+
+    }
+    private void displayMeals() {
+        MyDatabaseHelper mydb = new MyDatabaseHelper(MealPlan.this);
+        SQLiteDatabase db = mydb.getReadableDatabase();
+
+        // Array of meal types
+        String[] mealTypes = { "Breakfast", "Lunch", "Dinner", "Snack" };
+
+        for (int i = 0; i < mealTypes.length; i++) {
+            String query = "SELECT * FROM " + MyDatabaseHelper.TABLE_NAME + " WHERE " + MyDatabaseHelper.COLUMN_Time + " = ?";
+            Cursor cursor = db.rawQuery(query, new String[]{mealTypes[i]});
+            if (cursor.moveToFirst()) {
+                do {
+                    int mealIndex = i;
+
+                    // Set meal name
+                    mealNameTextViews[mealIndex].setText(cursor.getString(cursor.getColumnIndexOrThrow(MyDatabaseHelper.COLUMN_Meal)));
+
+                    // Set calories
+                    mealCaloriesTextViews[mealIndex].setText(String.valueOf(cursor.getInt(cursor.getColumnIndexOrThrow(MyDatabaseHelper.COLUMN_Calories))));
+
+                    // Set ingredients
+                    mealIngredientsTextViews[mealIndex].setText(cursor.getString(cursor.getColumnIndexOrThrow(MyDatabaseHelper.COLUMN_ingredients)));
+
+                    // Check the checkbox if the meal is selected
+                    checkBoxes[mealIndex].setChecked(true); // Assuming you have logic to determine which meals are selected
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        }
     }
         private void insertMeals() {
             MyDatabaseHelper mydb = new MyDatabaseHelper(MealPlan.this);
@@ -93,6 +133,7 @@ public class MealPlan extends AppCompatActivity {
             mydb.insertMeals("Tuna Salad with Crackers", "Snack", 450, "Canned Tuna (100g), Mayonnaise (30g), Diced Celery (50g), Whole Grain Crackers (150g), Lettuce Leaves (50g)");
 
     }
+
 }
 
 

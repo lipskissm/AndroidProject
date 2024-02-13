@@ -15,12 +15,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private Context context;
     private static final String DATABASE_NAME = "Meal.db";
     private static final int DATABASE_VERSION = 1;
-    private static final String TABLE_NAME = "Meals";
+    static final String TABLE_NAME = "Meals";
     private static final String COLUMN_ID = "_id";
-    private static final String COLUMN_Meal = "Meal";
-    private static final String COLUMN_Time = "Time";
-    private static final String COLUMN_Calories = "Calories";
-    private static final String COLUMN_ingredients = "Ingredients";
+    static final String COLUMN_Meal = "Meal";
+    static final String COLUMN_Time = "Time";
+    static final String COLUMN_Calories = "Calories";
+    static final String COLUMN_ingredients = "ingredients";
 
 
 
@@ -55,7 +55,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COLUMN_Meal, Meal);
         contentValues.put(COLUMN_Time, Time);
         contentValues.put(COLUMN_Calories, Calories);
-        contentValues.put(COLUMN_ingredients, Calories);
+        contentValues.put(COLUMN_ingredients, ingredients);
 
         long result = database.insert(TABLE_NAME, null, contentValues);
         if(result == -1){
@@ -72,4 +72,5 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return mealsExist;
     }
+
 }
