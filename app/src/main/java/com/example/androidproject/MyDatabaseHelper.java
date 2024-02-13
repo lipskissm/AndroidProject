@@ -20,7 +20,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     static final String COLUMN_Meal = "Meal";
     static final String COLUMN_Time = "Time";
     static final String COLUMN_Calories = "Calories";
-    static final String COLUMN_ingredients = "Ingredients";
+    static final String COLUMN_ingredients = "ingredients";
 
 
 
@@ -55,7 +55,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COLUMN_Meal, Meal);
         contentValues.put(COLUMN_Time, Time);
         contentValues.put(COLUMN_Calories, Calories);
-        contentValues.put(COLUMN_ingredients, Calories);
+        contentValues.put(COLUMN_ingredients, ingredients);
 
         long result = database.insert(TABLE_NAME, null, contentValues);
         if(result == -1){
