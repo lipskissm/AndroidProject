@@ -49,19 +49,19 @@ public class MealPlan extends AppCompatActivity {
         checkBoxes = new CheckBox[] { findViewById(R.id.checkBox), findViewById(R.id.checkBox2), findViewById(R.id.checkBox3), findViewById(R.id.checkBox4) };
         displayMeals();
         imageView = findViewById(R.id.closeIcon);
-//        imageView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent1 = new Intent(MealPlan.this, MainDashboard.class);
-//
-//                if (checkBox1.isChecked()) { intent1.putExtra("message_key_breakfast", breakfastList.get(breakfastId).getCalories()); }
-//                if (checkBox2.isChecked()) { intent1.putExtra("message_key_lunch", lunchList.get(lunchId).getCalories()); }
-//                if (checkBox3.isChecked()) { intent1.putExtra("message_key_dinner", dinnerList.get(dinnerId).getCalories()); }
-//                if (checkBox4.isChecked()) { intent1.putExtra("message_key_snack", snackList.get(snackId).getCalories()); }
-//
-//                startActivity(intent1);
-//            }
-//        });
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(MealPlan.this, MainDashboard.class);
+
+                if (checkBox1.isChecked()) { intent1.putExtra("message_key_breakfast", breakfastList.get(breakfastId).getCalories()); }
+                if (checkBox2.isChecked()) { intent1.putExtra("message_key_lunch", lunchList.get(lunchId).getCalories()); }
+                if (checkBox3.isChecked()) { intent1.putExtra("message_key_dinner", dinnerList.get(dinnerId).getCalories()); }
+                if (checkBox4.isChecked()) { intent1.putExtra("message_key_snack", snackList.get(snackId).getCalories()); }
+
+                startActivity(intent1);
+            }
+        });
 
     }
     private void displayMeals() {
@@ -79,13 +79,13 @@ public class MealPlan extends AppCompatActivity {
                     int mealIndex = i;
 
                     // Set meal name
-                    mealNameTextViews[mealIndex].setText(cursor.getString(cursor.getColumnIndex(MyDatabaseHelper.COLUMN_Meal)));
+                    mealNameTextViews[mealIndex].setText(cursor.getString(cursor.getColumnIndexOrThrow(MyDatabaseHelper.COLUMN_Meal)));
 
                     // Set calories
-                    mealCaloriesTextViews[mealIndex].setText(String.valueOf(cursor.getInt(cursor.getColumnIndex(MyDatabaseHelper.COLUMN_Calories))));
+                    mealCaloriesTextViews[mealIndex].setText(String.valueOf(cursor.getInt(cursor.getColumnIndexOrThrow(MyDatabaseHelper.COLUMN_Calories))));
 
                     // Set ingredients
-                    mealIngredientsTextViews[mealIndex].setText(cursor.getString(cursor.getColumnIndex(MyDatabaseHelper.COLUMN_ingredients)));
+                    mealIngredientsTextViews[mealIndex].setText(cursor.getString(cursor.getColumnIndexOrThrow(MyDatabaseHelper.COLUMN_ingredients)));
 
                     // Check the checkbox if the meal is selected
                     checkBoxes[mealIndex].setChecked(true); // Assuming you have logic to determine which meals are selected
